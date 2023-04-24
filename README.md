@@ -1,3 +1,14 @@
+compile and codesign:
+
+```shell
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DQt5_DIR=/opt/homebrew/opt/qt@5/lib/cmake/Qt5
+mv bundle/Barrier.app /Applications
+codesign --force --deep --sign - /Applications/Barrier.app
+```
+
+---
+
 # Barrier
 
 Eliminate the barrier between your machines.
