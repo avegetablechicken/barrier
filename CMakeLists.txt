@@ -335,18 +335,9 @@ elseif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
             ${OPENSSL_ROOT}/lib/libssl.a
             ${OPENSSL_ROOT}/lib/libcrypto.a
         )
-    elseif (IS_DIRECTORY /opt/local AND PORT_PROGRAM)
-        # macports
-        set (OPENSSL_ROOT /opt/local)
-
-        set (OPENSSL_LIBS
-            ${OPENSSL_ROOT}/lib/libssl.a
-            ${OPENSSL_ROOT}/lib/libcrypto.a
-            z
-        )
-    elseif (IS_DIRECTORY /usr/local/opt/openssl AND BREW_PROGRAM)
+    elseif (IS_DIRECTORY /opt/homebrew/opt/openssl AND BREW_PROGRAM)
         # brew
-        set (OPENSSL_ROOT /usr/local/opt/openssl)
+        set (OPENSSL_ROOT /opt/homebrew/opt/openssl)
 
         include_directories (BEFORE SYSTEM ${OPENSSL_ROOT}/include)
 
@@ -354,9 +345,9 @@ elseif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
             ${OPENSSL_ROOT}/lib/libssl.a
             ${OPENSSL_ROOT}/lib/libcrypto.a
         )
-    elseif (IS_DIRECTORY /opt/homebrew/opt/openssl AND BREW_PROGRAM)
+    elseif (IS_DIRECTORY /usr/local/opt/openssl AND BREW_PROGRAM)
         # brew
-        set (OPENSSL_ROOT /opt/homebrew/opt/openssl)
+        set (OPENSSL_ROOT /usr/local/opt/openssl)
 
         include_directories (BEFORE SYSTEM ${OPENSSL_ROOT}/include)
 
