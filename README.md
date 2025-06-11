@@ -2,6 +2,7 @@ compile and codesign:
 
 ```shell
 mkdir build && cd build
+export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
 cmake .. -DCMAKE_BUILD_TYPE=Release -DQt5_DIR=/opt/homebrew/opt/qt@5/lib/cmake/Qt5
 make -j`nproc`
 mv bundle/Barrier.app /Applications
